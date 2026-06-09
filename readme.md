@@ -1,1 +1,1 @@
-# 🚀 Laboratorio 10\n\n## 📖 Descripción\nEste laboratorio corresponde al curso de Desarrollo de Aplicaciones Web.\nNombre del laboratorio: Angular
+# 🚀 Laboratorio 10\n 📖 Descripción: Actividad en clase
