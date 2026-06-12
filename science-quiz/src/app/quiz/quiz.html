@@ -1,1 +1,18 @@
-<p>quiz works!</p>
+<div *ngIf="!juegoFinalizado">
+  <h2>{{ preguntas[indiceActual].pregunta }}</h2>
+
+  <button
+    *ngFor="let opcion of preguntas[indiceActual].opciones"
+    (click)="responder(opcion)">
+    {{ opcion }}
+  </button>
+</div>
+
+<div *ngIf="juegoFinalizado">
+  <h2>Juego Finalizado</h2>
+  <p>Puntaje: {{ puntaje }}</p>
+
+  <button (click)="reiniciarJuego()">
+    Reiniciar
+  </button>
+</div>
