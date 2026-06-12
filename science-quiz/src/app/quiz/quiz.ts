@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { QuestionService } from '../services/question.service';
+import { Question } from '../services/question';
 
 @Component({
   selector: 'app-quiz',
@@ -13,7 +13,7 @@ export class Quiz {
   puntaje = 0;
   juegoFinalizado = false;
 
-  constructor(private questionService: QuestionService) {
+  constructor(private questionService: Question) {
     this.preguntas = this.questionService.obtenerPreguntas();
   }
 
