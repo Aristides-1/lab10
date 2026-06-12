@@ -1,35 +1,37 @@
 import { Component } from '@angular/core';
 import { QuestionService } from '../services/question.service';
+
 @Component({
-selector: 'app-quiz',
-templateUrl: './quiz.component.html',
-styleUrls: ['./quiz.component.css']
+  selector: 'app-quiz',
+  standalone: false,
+  templateUrl: './quiz.html',
+  styleUrl: './quiz.css'
 })
-export class QuizComponent {
-preguntas: any[] = [];
-indiceActual = 0;
-puntaje = 0;
-juegoFinalizado = false;
-constructor(private questionService: QuestionService){
-this.preguntas = this.questionService.obtenerPreguntas();
-}
-responder(opcion: string){
-if(opcion === this.preguntas[this.indiceActual].respuesta){
-this.puntaje++;
-}
+export class Quiz {
+  preguntas: any[] = [];
+  indiceActual = 0;
+  puntaje = 0;
+  juegoFinalizado = false;
 
-Desarrollo de Aplicaciones Web
+  constructor(private questionService: QuestionService) {
+    this.preguntas = this.questionService.obtenerPreguntas();
+  }
 
-4
+  responder(opcion: string) {
+    if (opcion === this.preguntas[this.indiceActual].respuesta) {
+      this.puntaje++;
+    }
 
-this.indiceActual++;
-if(this.indiceActual >= this.preguntas.length){
-this.juegoFinalizado = true;
-}
-}
-reiniciarJuego(){
-this.indiceActual = 0;
-this.puntaje = 0;
-this.juegoFinalizado = false;
-}
+    this.indiceActual++;
+
+    if (this.indiceActual >= this.preguntas.length) {
+      this.juegoFinalizado = true;
+    }
+  }
+
+  reiniciarJuego() {
+    this.indiceActual = 0;
+    this.puntaje = 0;
+    this.juegoFinalizado = false;
+  }
 }
