@@ -107,14 +107,20 @@ recordMaximo: number = 0;
     this.iniciarJuego();
   }
 
-  iniciarJuego(): void {
-    //Seleccionar el objeto aleatorio de la lista estructurada
+iniciarJuego(): void {
+    //Dificultad
+    if (this.dificultad === 'FACIL') this.intentosMaximos = 6;
+    if (this.dificultad === 'MEDIO') this.intentosMaximos = 5;
+    if (this.dificultad === 'DIFICIL') this.intentosMaximos = 4;
+
+    //Seleccionar el objeto aleatorio de la lista estructurada (Solo una vez)
     const index = Math.floor(Math.random() * this.listaPalabras.length);
     
-    //Extraemos las propiedades del objeto seleccionado
+    // xtraemos las propiedades del objeto seleccionado
     this.palabraSecreta = this.listaPalabras[index].texto;
     this.categoriaActual = this.listaPalabras[index].categoria; 
     
+    //Reseteo de variables para un nuevo juego
     this.palabraOculta = Array(this.palabraSecreta.length).fill('_');
     this.letrasUsadas = [];
     this.errores = 0;
