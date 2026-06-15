@@ -1,6 +1,11 @@
 
 <div class="game-container">
   <h1>Juego del Ahorcado </h1>
+  <div class="dificultad-selector">
+    <button (click)="dificultad = 'FACIL'; iniciarJuego()" [class.active]="dificultad === 'FACIL'">Fácil</button>
+    <button (click)="dificultad = 'MEDIO'; iniciarJuego()" [class.active]="dificultad === 'MEDIO'">Medio</button>
+    <button (click)="dificultad = 'DIFICIL'; iniciarJuego()" [class.active]="dificultad === 'DIFICIL'">Difícil</button>
+  </div>
     <p class="categoria">Categoría: <strong>{{ categoriaActual }}</strong></p>
 
   <div class="marcador">
