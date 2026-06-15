@@ -25,6 +25,9 @@ export class AppComponent implements OnInit {
     { texto: 'SISTEMA', categoria: 'Informática' }
   ];
 
+  puntaje: number = 0;
+recordMaximo: number = 0;
+
   palabraSecreta: string = '';
   categoriaActual: string = ''; 
   palabraOculta: string[] = [];
