@@ -166,3 +166,14 @@ h1 {
   display: inline-block;
   border: 1px solid #fed7d7;
 }
+
+@keyframes parpadeoDerrota {
+  0% { opacity: 1; }
+  50% { opacity: 0.7; background-color: #fee2e2; }
+  100% { opacity: 1; }
+}
+
+.derrota-activa {
+  animation: parpadeoDerrota 1.5s infinite;
+  border-color: #ef4444 !important;
+}
