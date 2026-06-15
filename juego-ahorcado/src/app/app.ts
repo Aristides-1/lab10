@@ -158,6 +158,7 @@ iniciarJuego(): void {
   }
 
 intentarLetra(letra: string): void {
+  
     if (this.letrasUsadas.includes(letra) || this.juegoTerminado) {
       return;
     }
@@ -170,22 +171,34 @@ intentarLetra(letra: string): void {
           this.palabraOculta[i] = letra;
         }
       }
-      //Sumamos puntos y validamos el récord máximo
+      
+      //Efecto de sonido agudo y limpio para acierto
+      this.reproducirSonido(600, 'sine');
+
+    
       if (!this.palabraOculta.includes('_')) {
         this.victoria = true;
         this.juegoTerminado = true;
-        this.puntaje += 100; // +100 puntos por ganar
+        this.puntaje += 100; 
+        
+        // Actualizar el récord en LocalStorage si corresponde
         if (this.puntaje > this.recordMaximo) {
           this.recordMaximo = this.puntaje;
           localStorage.setItem('recordAhorcado', this.recordMaximo.toString());
         }
       }
+      
     } else {
+      
       this.errores++;
-      //Si pierde, la racha de puntos vuelve a 0
+      
+      //Efecto de sonido grave y seco para fallo
+      this.reproducirSonido(150, 'square');
+
+      // Validar si alcanzó el límite de fallos permitidos (Derrota)
       if (this.errores >= this.intentosMaximos) {
         this.juegoTerminado = true;
-        this.puntaje = 0; // Penalización por perder
+        this.puntaje = 0; // Rompe la racha de puntos acumulados
       }
     }
   }
