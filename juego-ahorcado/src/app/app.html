@@ -1,11 +1,14 @@
-<div class="game-container" [class.derrota-activa]="juegoTerminado && !victoria"></div>
-  <h1>Juego del Ahorcado </h1>
+<div class="game-container" [class.derrota-activa]="juegoTerminado && !victoria">
+  
+  <h1>Juego del Ahorcado</h1>
+
   <div class="dificultad-selector">
     <button (click)="dificultad = 'FACIL'; iniciarJuego()" [class.active]="dificultad === 'FACIL'">Fácil</button>
     <button (click)="dificultad = 'MEDIO'; iniciarJuego()" [class.active]="dificultad === 'MEDIO'">Medio</button>
     <button (click)="dificultad = 'DIFICIL'; iniciarJuego()" [class.active]="dificultad === 'DIFICIL'">Difícil</button>
   </div>
-    <p class="categoria">Categoría: <strong>{{ categoriaActual }}</strong></p>
+
+  <p class="categoria">Categoría: <strong>{{ categoriaActual }}</strong></p>
 
   <div class="marcador">
     <span>Puntos: <strong>{{ puntaje }}</strong></span> | 
@@ -18,8 +21,6 @@
     <pre>{{ fasesAhorcado[errores] }}</pre>
   </div>
 
-  <p class="intentos">Errores: {{ errores }} de {{ intentosMaximos }}</p>
-
   <div class="palabra-secreta">
     @for (letra of palabraOculta; track $index) {
       <span class="letra-espacio">{{ letra }}</span>
@@ -30,27 +31,22 @@
     @for (letra of abecedario; track letra) {
       <button 
         (click)="intentarLetra(letra)" 
-        [disabled]="letraDeshabilitada(letra)"
-        class="btn-letra">
+        [disabled]="letraDeshabilitada(letra)">
         {{ letra }}
       </button>
     }
   </div>
 
   @if (juegoTerminado) {
-    <div class="resultado-container">
+    <div class="resultado">
       @if (victoria) {
-        <div class="mensaje victoria">
-          <h2>¡Felicidades! ¡Has salvado a la persona! 🎉</h2>
-        </div>
+        <h2 class="mensaje-victoria">¡Felicidades! Ganaste 🎉</h2>
       } @else {
-        <div class="mensaje derrota">
-          <h2>¡El juego ha acabado! La persona se ha ahorcado 💀</h2>
-          <p>La palabra correcta era: <strong>{{ palabraSecreta }}</strong></p>
-        </div>
+        <h2 class="mensaje-derrota">¡Oops! Perdiste 💥</h2>
+        <p>La palabra era: <strong>{{ palabraSecreta }}</strong></p>
       }
-
-      <button (click)="iniciarJuego()" class="btn-reiniciar">Jugar de Nuevo</button>
+      <button class="btn-reiniciar" (click)="iniciarJuego()">Jugar de Nuevo</button>
     </div>
   }
-</div>
+
+</div> ```
