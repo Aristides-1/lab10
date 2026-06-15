@@ -193,4 +193,17 @@ intentarLetra(letra: string): void {
   letraDeshabilitada(letra: string): boolean {
     return this.letrasUsadas.includes(letra) || this.juegoTerminado;
   }
+
+  reproducirSonido(frecuencia: number, tipo: 'sine' | 'square') {
+  const ctx = new (window.AudioContext || (window as any).webkitAudioContext)();
+  const osc = ctx.createOscillator();
+  const gain = ctx.createGain();
+  osc.type = tipo;
+  osc.frequency.setValueAtTime(frecuencia, ctx.currentTime);
+  osc.connect(gain);
+  gain.connect(ctx.destination);
+  osc.start();
+  gain.gain.exponentialRampToValueAtTime(0.00001, ctx.currentTime + 0.4);
+  osc.stop(ctx.currentTime + 0.4);
+}
 }
