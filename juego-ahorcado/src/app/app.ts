@@ -122,7 +122,7 @@ recordMaximo: number = 0;
     this.victoria = false;
   }
 
-  intentarLetra(letra: string): void {
+intentarLetra(letra: string): void {
     if (this.letrasUsadas.includes(letra) || this.juegoTerminado) {
       return;
     }
@@ -135,14 +135,22 @@ recordMaximo: number = 0;
           this.palabraOculta[i] = letra;
         }
       }
+      //Sumamos puntos y validamos el récord máximo
       if (!this.palabraOculta.includes('_')) {
         this.victoria = true;
         this.juegoTerminado = true;
+        this.puntaje += 100; // +100 puntos por ganar
+        if (this.puntaje > this.recordMaximo) {
+          this.recordMaximo = this.puntaje;
+          localStorage.setItem('recordAhorcado', this.recordMaximo.toString());
+        }
       }
     } else {
       this.errores++;
+      //Si pierde, la racha de puntos vuelve a 0
       if (this.errores >= this.intentosMaximos) {
         this.juegoTerminado = true;
+        this.puntaje = 0; // Penalización por perder
       }
     }
   }
