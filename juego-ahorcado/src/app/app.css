@@ -154,3 +154,15 @@ h1 {
   color: white;
   border-color: #3182ce;
 }
+
+.timer {
+  font-size: 22px;
+  color: #e53e3e; /* Un rojo intenso de alerta */
+  font-weight: bold;
+  margin: 10px 0;
+  background-color: #fff5f5;
+  padding: 8px;
+  border-radius: 8px;
+  display: inline-block;
+  border: 1px solid #fed7d7;
+}
