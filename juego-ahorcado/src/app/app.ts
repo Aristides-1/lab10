@@ -28,6 +28,9 @@ export class AppComponent implements OnInit {
   puntaje: number = 0;
 recordMaximo: number = 0;
 
+tiempoRestante: number = 10; //temporizador de 10 segundos para cada intento
+intervaloId: any;
+
   palabraSecreta: string = '';
   categoriaActual: string = ''; 
   palabraOculta: string[] = [];
