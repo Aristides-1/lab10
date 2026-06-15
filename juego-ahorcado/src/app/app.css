@@ -127,3 +127,30 @@ h1 {
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
+
+.dificultad-selector {
+  margin: 15px 0;
+}
+
+.dificultad-selector button {
+  background-color: #ffffff;
+  border: 2px solid #cbd5e0;
+  padding: 6px 14px;
+  margin: 0 4px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  color: #4a5568;
+  transition: all 0.2s;
+}
+
+.dificultad-selector button:hover {
+  background-color: #edf2f7;
+}
+
+
+.dificultad-selector button.active {
+  background-color: #3182ce;
+  color: white;
+  border-color: #3182ce;
+}
