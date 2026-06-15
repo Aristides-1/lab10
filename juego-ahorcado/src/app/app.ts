@@ -17,8 +17,16 @@ interface Palabra {
 
 export class AppComponent implements OnInit {
  
-  listaPalabras: string[] = ['ANGULAR', 'LINUX', 'WSL', 'TYPESCRIPT', 'PROGRAMACION', 'STANDALONE'];
+  listaPalabras: Palabra[] = [
+    { texto: 'ANGULAR', categoria: 'Tecnología' },
+    { texto: 'LINUX', categoria: 'Sistemas Operativos' },
+    { texto: 'WSL', categoria: 'Entornos de Desarrollo' },
+    { texto: 'TYPESCRIPT', categoria: 'Programación' },
+    { texto: 'SISTEMA', categoria: 'Informática' }
+  ];
+
   palabraSecreta: string = '';
+  categoriaActual: string = ''; 
   palabraOculta: string[] = [];
   letrasUsadas: string[] = [];
   
