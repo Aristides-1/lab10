@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 
+interface Palabra {
+  texto: string;
+  categoria: string;
+}
+
 @Component({
   selector: 'app-root',
   standalone: true,
