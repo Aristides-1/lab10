@@ -12,8 +12,7 @@
 ▶️ Video de funcionalidad: https://www.youtube.com/watch?v=aGLnAU9gCyw
 
 
-
-Una aplicación web interactiva, moderna y de alto rendimiento del clásico juego del "Ahorcado". Este proyecto fue desarrollado bajo la arquitectura de componentes autónomos de **Angular 22**, utilizando un entorno de desarrollo basado en **WSL Linux (Ubuntu)** y control de versiones estricto con Git.
+Una aplicación web interactiva, moderna y de alto rendimiento del clásico juego del "Ahorcado". Este proyecto fue desarrollado bajo la arquitectura de componentes autónomos de **Angular 22**, utilizando un entorno de desarrollo basado en **WSL Linux (Ubuntu)**.
 ---
 
 ## 🚀 Características Principales
