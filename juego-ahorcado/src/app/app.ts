@@ -100,6 +100,10 @@ recordMaximo: number = 0;
   ];
 
   ngOnInit(): void {
+    const guardado = localStorage.getItem('recordAhorcado');
+    if (guardado) {
+      this.recordMaximo = parseInt(guardado, 10);
+    }
     this.iniciarJuego();
   }
 
