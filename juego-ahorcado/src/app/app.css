@@ -1,0 +1,116 @@
+.game-container {
+  text-align: center;
+  font-family: Arial, sans-serif;
+  max-width: 600px;
+  margin: 30px auto;
+  padding: 20px;
+  background-color: #f4f7f6;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+h1 {
+  color: #2c3e50;
+  margin-bottom: 20px;
+}
+
+/* Contenedor oscuro para el muñeco pixelado en ASCII */
+.ahorcado-container pre {
+  font-family: monospace;
+  font-size: 22px;
+  line-height: 1.2;
+  background-color: #2d3748;
+  color: #cbd5e0;
+  padding: 15px;
+  border-radius: 8px;
+  display: inline-block;
+  text-align: left;
+}
+
+.intentos {
+  font-size: 18px;
+  font-weight: bold;
+  color: #e53e3e;
+  margin: 15px 0;
+}
+
+.palabra-secreta {
+  margin: 30px 0;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.letra-espacio {
+  font-size: 28px;
+  font-weight: bold;
+  border-bottom: 3px solid #3182ce;
+  width: 35px;
+  text-align: center;
+}
+
+.teclado {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.btn-letra {
+  width: 40px;
+  height: 40px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  background-color: #ffffff;
+  border: 2px solid #cbd5e0;
+  border-radius: 6px;
+  transition: background-color 0.2s;
+}
+
+.btn-letra:hover:not([disabled]) {
+  background-color: #3182ce;
+  color: white;
+  border-color: #3182ce;
+}
+
+.btn-letra:disabled {
+  background-color: #e2e8f0;
+  color: #a0aec0;
+  cursor: not-allowed;
+  border-color: #e2e8f0;
+}
+
+.resultado-container {
+  margin-top: 30px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.victoria h2 {
+  color: #38a169;
+}
+
+.derrota h2 {
+  color: #e53e3e;
+}
+
+.btn-reiniciar {
+  margin-top: 15px;
+  padding: 12px 25px;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  background-color: #3182ce;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.btn-reiniciar:hover {
+  background-color: #2b6cb0;
+}
