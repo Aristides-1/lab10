@@ -24,7 +24,7 @@ export class AppComponent implements OnInit {
     { texto: 'TYPESCRIPT', categoria: 'Programación' },
     { texto: 'SISTEMA', categoria: 'Informática' }
   ];
-
+  dificultad: 'FACIL' | 'MEDIO' | 'DIFICIL' = 'MEDIO';
   puntaje: number = 0;
 recordMaximo: number = 0;
 
