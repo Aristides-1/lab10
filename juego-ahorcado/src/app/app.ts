@@ -116,10 +116,9 @@ iniciarJuego(): void {
     if (this.dificultad === 'MEDIO') this.intentosMaximos = 5;
     if (this.dificultad === 'DIFICIL') this.intentosMaximos = 4;
 
-    //Seleccionar el objeto aleatorio de la lista estructurada (Solo una vez)
+  
     const index = Math.floor(Math.random() * this.listaPalabras.length);
     
-    // xtraemos las propiedades del objeto seleccionado
     this.palabraSecreta = this.listaPalabras[index].texto;
     this.categoriaActual = this.listaPalabras[index].categoria; 
     
@@ -129,6 +128,33 @@ iniciarJuego(): void {
     this.errores = 0;
     this.juegoTerminado = false;
     this.victoria = false;
+
+    
+    this.manejarTiempo();
+  } 
+
+  manejarTiempo(): void {
+    //Si ya hay un temporizador corriendo, lo limpiamos para que no se duplique
+    if (this.intervaloId) {
+      clearInterval(this.intervaloId);
+    }
+    
+    this.tiempoRestante = 10; 
+
+    this.intervaloId = setInterval(() => {
+      if (!this.juegoTerminado) {
+        this.tiempoRestante--;
+        
+        //Si el tiempo llega a 0, el estudiante pierde automáticamente la partida
+        if (this.tiempoRestante <= 0) {
+          this.juegoTerminado = true;
+          this.puntaje = 0; // Penalización por perder
+          clearInterval(this.intervaloId);
+        }
+      } else {
+        clearInterval(this.intervaloId);
+      }
+    }, 1000); // Se ejecuta cada 1 segundo
   }
 
 intentarLetra(letra: string): void {
