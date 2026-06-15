@@ -1,5 +1,4 @@
-
-<div class="game-container">
+<div class="game-container" [class.derrota-activa]="juegoTerminado && !victoria"></div>
   <h1>Juego del Ahorcado </h1>
   <div class="dificultad-selector">
     <button (click)="dificultad = 'FACIL'; iniciarJuego()" [class.active]="dificultad === 'FACIL'">Fácil</button>
@@ -14,7 +13,7 @@
   </div>
 
   <p class="timer">Tiempo restante: <strong>{{ tiempoRestante }}s</strong></p>
-  
+
   <div class="ahorcado-container">
     <pre>{{ fasesAhorcado[errores] }}</pre>
   </div>
