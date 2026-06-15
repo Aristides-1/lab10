@@ -101,11 +101,14 @@ export class AppComponent implements OnInit {
   }
 
   iniciarJuego(): void {
+    //Seleccionar el objeto aleatorio de la lista estructurada
     const index = Math.floor(Math.random() * this.listaPalabras.length);
-    this.palabraSecreta = this.listaPalabras[index];
+    
+    //Extraemos las propiedades del objeto seleccionado
+    this.palabraSecreta = this.listaPalabras[index].texto;
+    this.categoriaActual = this.listaPalabras[index].categoria; 
     
     this.palabraOculta = Array(this.palabraSecreta.length).fill('_');
-    
     this.letrasUsadas = [];
     this.errores = 0;
     this.juegoTerminado = false;
